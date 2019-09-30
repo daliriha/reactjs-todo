@@ -5,7 +5,12 @@ import { observer } from "mobx-react";
 class TodoItem extends Component {
   onToggle = () => {
     this.props.todo.toggle();
-    console.log('changed')
+    console.log("changed");
+  };
+
+  onRemove = () => {
+    this.props.todo.remove();
+    console.log("removed");
   };
   render() {
     const { todo } = this.props;
@@ -20,7 +25,7 @@ class TodoItem extends Component {
             checked={todo.completed}
           />
           <label>{todo.title}</label>
-          <button className="destry" />
+          <button className="destroy" onClick={this.onRemove} />
         </div>
       </li>
     );

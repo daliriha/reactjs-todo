@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TodoItem from './TodoItem'
-import todoStore from '../stores/TodoStore'
-import {observer} from 'mobx-react'
+import TodoItem from "./TodoItem";
+import todoStore from "../stores/TodoStore";
+import { observer } from "mobx-react";
 
 @observer
 class TodoItems extends Component {
@@ -9,13 +9,9 @@ class TodoItems extends Component {
     return (
       <section className="main">
         <ul className="todo-list">
-         {
-             todoStore.todos.map(todo => {
-                 return(
-                    <TodoItem todo={todo} />
-                 )
-             })
-         }
+          {todoStore.filteredItems.map(todo => {
+            return <TodoItem todo={todo} />;
+          })}
         </ul>
       </section>
     );
